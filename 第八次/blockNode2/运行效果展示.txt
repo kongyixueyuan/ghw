@@ -1,0 +1,171 @@
+##第八次作业展示
+
+##终端1：设置主节点
+set node_id = 6666
+##编译项目 go build Ghw_main.go
+##创建钱包
+Ghw_main createwallet
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main createwallet
+钱包地址：12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas
+
+
+
+
+##创建区块
+Ghw_main createblockchain -address 12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main createblockchain -address 12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas
+0000fcaa971f92607d6d98fd7d25486d523e617c4b6062da88547e994fd96658
+
+
+
+
+
+##查看余额
+Ghw_main getbalance -address  12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address  12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas
+地址:12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas的余额为：10
+
+
+
+
+##备份区块
+
+复制 
+ chaorsBlockchain_6666.db blockchain_genesis.db
+ chaorsBlockchain_6666.db chaorsBlockchain_8888.db
+ 
+ 
+ ##终端2：设置钱包节点
+ set node_id = 8888
+ ##创建钱包
+ Ghw_main createwallet
+ Ghw_main createwallet
+ 执行效果
+ 
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main createwallet
+钱包地址：13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main createwallet
+钱包地址：19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa
+
+
+
+ 
+ ##查看余额
+Ghw_main getbalance -address  13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD
+Ghw_main getbalance -address 19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa
+
+执行效果
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address  13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD
+地址:13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD的余额为：0
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address 19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa
+地址:19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa的余额为：0
+
+
+
+##在终端1，中进行转载转账操作
+Ghw_main send -from [\"12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas\"] -to [\"13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD\"] -amount [\"8\"] -mine
+Ghw_main send -from [\"12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas\"] -to [\"19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa\"] -amount [\"6\"] -mine
+
+展示效果
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main send -from [\"12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas\"] -to [\"13vmJ
+pHzHhMpdnmoBbTwep88UaePV5rJuD\"] -amount [\"8\"] -mine
+txs==0
+0000670c581305839bfa535732bb355613a6afcf0aaecc46fecbfddfa9e92723
+D:\workspace\golandworkspace\src\block\blockNode2>
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main send -from [\"12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas\"] -to [\"19SQa
+FMy2QE6QaPa16Ro6CqMJtohjh7vVa\"] -amount [\"6\"] -mine
+txs==0
+000032df23ee4d68622e9fd4a01577cad544001765d107f07576243cb5980291
+D:\workspace\golandworkspace\src\block\blockNode2>
+
+
+ ##查看余额
+Ghw_main getbalance -address 12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas
+Ghw_main getbalance -address 13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD
+Ghw_main getbalance -address 19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address 12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas
+地址:12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas的余额为：16
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address 13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD
+地址:13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD的余额为：8
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address 19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa
+地址:19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa的余额为：6
+
+
+
+##在终端2，查看余额
+Ghw_main getBalance -address
+Ghw_main getBalance -address
+Ghw_main getBalance -address
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address 19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa
+地址:19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa的余额为：0
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address 19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa
+地址:19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa的余额为：0
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address  13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD
+地址:13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD的余额为：0
+
+
+
+##终端2开始节点同步
+Ghw_main startnode
+
+##终端1开始节点同步
+Ghw_main startnode
+
+展示效果：
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address  13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD
+地址:13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD的余额为：8
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address 19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa
+地址:19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa的余额为：6
+
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address 12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas
+地址:12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas的余额为：16
+
+
+
+##在终端2中再次进行转载操作
+Ghw_main send -from [\"13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD\"] -to [\"12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas\"] -amount [\"3\"] -mine
+Ghw_main send -from [\"19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa\"] -to [\"12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas\"] -amount [\"3\"] -mine
+##查看余额
+Ghw_main getBalance -address
+Ghw_main getBalance -address
+Ghw_main getBalance -address
+#16+3+3
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address 12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas
+地址:12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas的余额为：22
+
+#3+10
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address 19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa
+地址:19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa的余额为：13
+
+#5+10
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address  13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD
+地址:13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD的余额为：15
+
+
+##在终端1中进行余额查看
+
+#16+3+3
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address 12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas
+地址:12AxEQzgDMZ6MQJ4YYEQWNZ4Hu1u1kncas的余额为：22
+
+#3+10
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address 19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa
+地址:19SQaFMy2QE6QaPa16Ro6CqMJtohjh7vVa的余额为：13
+
+#5+10
+D:\workspace\golandworkspace\src\block\blockNode2>Ghw_main getbalance -address  13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD
+地址:13vmJpHzHhMpdnmoBbTwep88UaePV5rJuD的余额为：15
+
+
